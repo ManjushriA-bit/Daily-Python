@@ -13,4 +13,5 @@ Prints None because
 Every function in python returns something 
 if we dont specify return, python automatically returns None 
 '''
+#String
 tables("6")
