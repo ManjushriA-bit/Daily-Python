@@ -20,17 +20,16 @@ def click(event):
 
 
 root = tk.Tk()
-root.title("Blue Professional Calculator")
+root.title("Light Minimal Calculator")
 root.geometry("350x500")
-root.configure(bg="#0f172a")
+root.configure(bg="#f5f7fa")
 
 entry = tk.Entry(root,
                  font=("Arial",24),
-                 bd=10,
+                 bd=5,
                  justify="right",
-                 bg="#1e293b",
-                 fg="white",
-                 insertbackground="white")
+                 bg="white",
+                 fg="black")
 entry.pack(fill=tk.BOTH, pady=15)
 
 buttons = [
@@ -41,7 +40,7 @@ buttons = [
     "**","C","="
 ]
 
-frame = tk.Frame(root, bg="#0f172a")
+frame = tk.Frame(root, bg="#f5f7fa")
 frame.pack()
 
 row = col = 0
@@ -49,20 +48,20 @@ row = col = 0
 for button in buttons:
 
     if button == "=":
-        color = "#2563eb"
+        color = "#22c55e"
     elif button == "C":
-        color = "#dc2626"
+        color = "#ef4444"
     elif button in ["+","-","*","/","%","**"]:
-        color = "#3b82f6"
+        color = "#38bdf8"
     else:
-        color = "#334155"
+        color = "#e2e8f0"
 
     btn = tk.Button(frame, text=button,
                     font=("Arial",16),
                     width=5, height=2,
-                    bg=color, fg="white",
+                    bg=color, fg="black",
                     bd=0,
-                    activebackground="#1d4ed8")
+                    activebackground="#cbd5e1")
 
     btn.grid(row=row, column=col, padx=5, pady=5)
     btn.bind("<Button-1>", click)
