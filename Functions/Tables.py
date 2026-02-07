@@ -8,6 +8,7 @@ def tables(num):
 tables(10.6)
 table=tables(15.4)
 print(table)
+
 '''
 Prints None because
 Every function in python returns something 
