@@ -9,51 +9,60 @@ def click(event):
             result = eval(current)
             entry.delete(0, tk.END)
             entry.insert(tk.END, round(result, 2))
-        except ZeroDivisionError:
-            entry.delete(0, tk.END)
-            entry.insert(tk.END, "Cannot divide by 0")
-        except Exception:
+        except:
             entry.delete(0, tk.END)
             entry.insert(tk.END, "Error")
 
     elif button_text == "C":
         entry.delete(0, tk.END)
-
     else:
         entry.insert(tk.END, button_text)
 
 
-# Main window
 root = tk.Tk()
-root.title("Advanced Python Calculator")
+root.title("Blue Professional Calculator")
 root.geometry("350x500")
-root.resizable(False, False)
+root.configure(bg="#0f172a")
 
-# Entry box
-entry = tk.Entry(root, font=("Arial", 24), bd=10, relief=tk.RIDGE, justify="right")
-entry.pack(fill=tk.BOTH, ipadx=8, pady=15)
+entry = tk.Entry(root,
+                 font=("Arial",24),
+                 bd=10,
+                 justify="right",
+                 bg="#1e293b",
+                 fg="white",
+                 insertbackground="white")
+entry.pack(fill=tk.BOTH, pady=15)
 
-# Buttons layout
 buttons = [
-    "7", "8", "9", "/",
-    "4", "5", "6", "*",
-    "1", "2", "3", "-",
-    "0", ".", "%", "+",
-    "**", "C", "="
+    "7","8","9","/",
+    "4","5","6","*",
+    "1","2","3","-",
+    "0",".","%","+",
+    "**","C","="
 ]
 
-frame = tk.Frame(root)
+frame = tk.Frame(root, bg="#0f172a")
 frame.pack()
 
-row = 0
-col = 0
+row = col = 0
 
 for button in buttons:
-    btn = tk.Button(frame,
-                    text=button,
-                    font=("Arial", 16),
-                    width=5,
-                    height=2)
+
+    if button == "=":
+        color = "#2563eb"
+    elif button == "C":
+        color = "#dc2626"
+    elif button in ["+","-","*","/","%","**"]:
+        color = "#3b82f6"
+    else:
+        color = "#334155"
+
+    btn = tk.Button(frame, text=button,
+                    font=("Arial",16),
+                    width=5, height=2,
+                    bg=color, fg="white",
+                    bd=0,
+                    activebackground="#1d4ed8")
 
     btn.grid(row=row, column=col, padx=5, pady=5)
     btn.bind("<Button-1>", click)
